@@ -28,7 +28,7 @@ type CreateShortLinkResult struct {
 }
 
 type UpdateShortLink struct {
-	WithToken string `json:"token"`
+	WithToken string `json:"with_token"`
 	Location  string `json:"location"`
 }
 
@@ -40,5 +40,17 @@ type UpdateShortLinkResult struct {
 }
 
 type DeleteShortLink struct {
-	WithToken string `json:"token"`
+	WithToken string `json:"with_token"`
+}
+
+type GetShortLink struct {
+	WithToken string `json:"with_token"`
+}
+
+type PaginateShortLinks struct {
+	Paginator `json:"paginator"`
+}
+
+type ShortLinksPagination struct {
+	Items []ShortLink `json:"items"`
 }
