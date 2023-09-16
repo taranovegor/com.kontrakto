@@ -1,5 +1,9 @@
 package kontrakto
 
+type Error struct {
+	Message string `json:"message"`
+}
+
 type ValidationResult struct {
 	Success bool   `json:"success"`
 	Message string `json:"message"`
