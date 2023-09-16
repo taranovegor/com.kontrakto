@@ -1,32 +1,44 @@
 package kontrakto
 
-const (
-	RegexShortLinkToken = "[\\w\\-]{4,64}"
-)
-
 type ValidateShortLinkToken struct {
 	Token string `json:"token"`
 }
 
-type ValidateShortLinkUrl struct {
-	Url string `json:"url"`
+type ValidateShortLinkLocation struct {
+	Location string `json:"location"`
 }
 
 type ShortLink struct {
-	Token string `json:"token"`
-	Url   string `json:"url"`
+	Token    string `json:"token"`
+	Location string `json:"location"`
+	Url      string `json:"url"`
 }
 
 type CreateShortLink struct {
-	Token string `json:"token"`
-	Url   string `json:"url"`
+	Token    string `json:"token"`
+	Location string `json:"location"`
+}
+
+type CreateShortLinkResult struct {
+	Success            bool
+	Message            string
+	TokenValidation    ValidationResult
+	LocationValidation ValidationResult
+	ShortLink          ShortLink
 }
 
 type UpdateShortLink struct {
-	Token string `json:"token"`
-	Url   string `json:"url"`
+	WithToken string `json:"token"`
+	Location  string `json:"location"`
+}
+
+type UpdateShortLinkResult struct {
+	Success            bool
+	Message            string
+	LocationValidation ValidateShortLinkLocation
+	ShortLink          ShortLink
 }
 
 type DeleteShortLink struct {
-	Token string `json:"token"`
+	WithToken string `json:"token"`
 }
